@@ -6,7 +6,7 @@ module.exports = {
 	experimental: {
 		outputStandalone: true,
 	},
-	assetPrefix: isProd ? "https://garrit.xyz" : "",
+	assetPrefix: isProd ? "https://marcocaldera.github.io" : "",
 	sassOptions: {
 		includePaths: [path.join(__dirname, "styles")],
 	},
