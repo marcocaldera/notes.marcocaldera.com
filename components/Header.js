@@ -18,6 +18,11 @@ export default function Header(props) {
 							Contact
 						</a>
 					</li>
+					<li>
+						<a href="https://marcocaldera.com" target="_blank">
+							Website
+						</a>
+					</li>
 				</ul>
 			</nav>
 		</header>
