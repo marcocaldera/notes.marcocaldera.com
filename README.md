@@ -1,7 +1,5 @@
 # Under development
 
-Forked from: https://garrit.xyz
-
 ## Generating posts
 
 Running the following command will generate a new blog post with the necessary boilerplate.
@@ -10,3 +8,5 @@ Running the following command will generate a new blog post with the necessary b
 ./contrib/gen-post.sh My first post
 # -> 2021-04-12-my-first-post.md
 ```
+
+_Originally forked from: https://garrit.xyz_
