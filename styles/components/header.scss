@@ -26,6 +26,10 @@ nav {
 	&__container {
 		padding: 24px 0px;
 		padding-bottom: 0px;
+
+		&__logo {
+			color: var(--text) !important;
+		}
 	}
 }
 
