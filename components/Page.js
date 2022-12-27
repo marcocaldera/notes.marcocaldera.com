@@ -8,7 +8,7 @@ export default function Page(props) {
 	const setupEditHook = () => {
 		window.addEventListener("keypress", (e) => {
 			const baseUrl =
-				"https://github.com/garritfra/garrit.xyz/edit/main/content";
+				"https://github.com/marcocaldera/notes.marcocaldera.com/edit/main/content";
 			if (e.key === ".") {
 				const filePath = window.location.pathname;
 				const url = `${baseUrl}${filePath}.md`;

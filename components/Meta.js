@@ -16,18 +16,9 @@ export default function Meta(props) {
 		}
 	};
 
-	const logCtfHint = () => {
-		console.log("================================================");
-		console.log("Hi there! You seem to be interested in websites.");
-		console.log("        Why not check out my challenge?");
-		console.log("            https://garrit.xyz/ctf");
-		console.log("================================================");
-	};
-
 	useEffect(() => {
 		if (isClient()) {
 			setupPlausible();
-			logCtfHint();
 		}
 	}, []);
 
@@ -39,14 +30,10 @@ export default function Meta(props) {
 				<title>{props.pageTitle || props.siteTitle}</title>
 				<meta
 					name="Description"
-					content="Generalist developer writing about fullstack development, system administration and free software."
+					content="Software engineer obsessed about creating great products."
 				></meta>
 				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-				<link
-					rel="webmention"
-					href="https://webmention.io/garrit.xyz/webmention"
-				/>
 				<link rel="pingback" href="https://webmention.io/garrit.xyz/xmlrpc" />
 
 				<link
