@@ -70,24 +70,19 @@ export default function BlogTemplate(props) {
 			<hr />
 			<p>
 				<a
-					href={`mailto:garrit@slashdev.space?subject=Re: ${encodeURIComponent(
+					href={`mailto:marco.caldera93@icloud.com?subject=Re: ${encodeURIComponent(
 						props.frontmatter.title
 					)}`}
 				>
 					Reply via E-Mail
 				</a>
 			</p>
-			<a href="https://www.buymeacoffee.com/garrit" target="_blank">
-				<img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=garrit&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
-			</a>
 
 			{props.frontmatter.tags && renderTagList()}
 
 			<div className="shareon">
 				<a className="facebook"></a>
 				<a className="linkedin"></a>
-				<a className="mastodon"></a>
-				<a className="pocket"></a>
 				<a className="reddit"></a>
 				<a className="telegram"></a>
 				<a className="twitter"></a>

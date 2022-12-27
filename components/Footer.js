@@ -12,9 +12,9 @@ export default function Footer() {
 				<a href="https://github.com/marcocaldera" rel="me">
 					Github
 				</a>
-				<br />
+				<span> ⋅ </span>
 				<a href="https://www.linkedin.com/in/marco-caldera/">LinkedIn</a>
-				<br />
+				<span> ⋅ </span>
 				<a href="/contact">Contact</a>
 			</div>
 			<p>© 2022-{currentYear} Marco Caldera</p>
