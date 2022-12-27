@@ -1,7 +1,5 @@
 # Privacy Policy
 
-Effective date: December 06, 2022
-
 This privacy policy applies to Marco Caldera Notes. Accessible at:
 https://notes.marcocaldera.com.
 
