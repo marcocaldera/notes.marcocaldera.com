@@ -10,17 +10,12 @@ export default function Header(props) {
 				<ul className="header__links">
 					<li>
 						<a href="/posts" className="underlined">
-							Blog
+							Notes
 						</a>
 					</li>
 					<li>
 						<a href="/contact" className="underlined">
 							Contact
-						</a>
-					</li>
-					<li>
-						<a href="/cv" className="underlined">
-							Resume
 						</a>
 					</li>
 				</ul>

@@ -19,17 +19,15 @@ export default function Footer() {
 				<br />
 				<a href="/privacy">Privacy Policy</a>
 				<h3>Elsewhere</h3>
-				<a href="https://github.com/garritfra" rel="me">
+				<a href="https://github.com/marcocaldera" rel="me">
 					Github
 				</a>
 				<br />
-				<a href="https://www.linkedin.com/in/garritfranke/">LinkedIn</a>
-				<br />
-				<a href="https://fosstodon.org/@garritfra">Mastodon (ActivityPub)</a>
+				<a href="https://www.linkedin.com/in/marco-caldera/">LinkedIn</a>
 				<br />
 				<a href="/contact">Contact</a>
 			</div>
-			<p>© 2018-{currentYear} Garrit Franke</p>
+			<p>© 2022-{currentYear} Marco Caldera</p>
 		</footer>
 	);
 }
