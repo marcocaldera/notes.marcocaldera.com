@@ -4,8 +4,7 @@ Allow: /cv
 Allow: /todo
 Allow: /blogroll
 
-Disallow: /flag.txt
 Disallow: /git/HEAD
 
 # Sitemaps
-Sitemap: https://garrit.xyz/sitemap-0.xml
+Sitemap: https://notes.marcocaldera.com/sitemap-0.xml

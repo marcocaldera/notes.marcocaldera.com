@@ -4,7 +4,7 @@ import "../styles/index.scss";
 function MyApp({ Component, pageProps }) {
 	return (
 		<PlausibleProvider
-			domain="garrit.xyz"
+			domain="notes.marcocaldera.com"
 			customDomain="https://analytics.slashdev.space"
 			selfHosted
 			trackOutboundLinks
