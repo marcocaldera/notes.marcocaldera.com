@@ -7,16 +7,6 @@ export default function Footer() {
 				<h3>Links of Interest</h3>
 				<a href="/rss.xml">RSS Feed</a>
 				<br />
-				<a href="/todo">Todo List</a>
-				<br />
-				<a href="https://keyoxide.org/hkp/garrit@slashdev.space">PGP Key</a>
-				<br />
-				<a href="/guestbook">Guestbook</a>
-				<br />
-				<a href="/blogroll">Blogroll</a>
-				<br />
-				<a href="/ctf">Capture the Flag</a>
-				<br />
 				<a href="/privacy">Privacy Policy</a>
 				<h3>Elsewhere</h3>
 				<a href="https://github.com/marcocaldera" rel="me">
