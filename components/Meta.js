@@ -34,7 +34,14 @@ export default function Meta(props) {
 				></meta>
 				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 				<link href="https://github.com/marcocaldera" rel="me" />
-
+				<link
+					rel="webmention"
+					href="https://webmention.io/notes.marcocaldera.com/webmention"
+				/>
+				<link
+					rel="pingback"
+					href="https://webmention.io/notes.marcocaldera.com/xmlrpc"
+				/>
 				<link
 					href="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.min.css"
 					rel="stylesheet"
