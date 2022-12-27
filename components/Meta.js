@@ -33,7 +33,7 @@ export default function Meta(props) {
 					content="Software engineer obsessed about creating great products."
 				></meta>
 				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
+				<link href="https://github.com/marcocaldera" rel="me" />
 				<link rel="pingback" href="https://webmention.io/garrit.xyz/xmlrpc" />
 
 				<link
