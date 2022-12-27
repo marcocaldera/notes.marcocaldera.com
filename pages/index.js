@@ -31,7 +31,7 @@ const Index = (props) => {
 		<Page className="h-card" siteTitle="Marco Caldera">
 			{isWinter && !prefersReducedMotion && buildSnow()}
 			<ReactMarkdown remarkPlugins={[gfm]}>{props.markdownBody}</ReactMarkdown>
-			<h3>Recent posts</h3>
+			<h3>Recent notes</h3>
 			<BlogList posts={props.recentPosts}></BlogList>
 		</Page>
 	);
