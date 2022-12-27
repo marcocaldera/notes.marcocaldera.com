@@ -75,6 +75,7 @@ jobs:
       - name: Build with Next.js
         run: npm run build:static
       - run: touch out/.nojekyll
+      - run: echo "notes.marcocaldera.com" > CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
