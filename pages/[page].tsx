@@ -37,14 +37,17 @@ export async function getStaticProps({ ...ctx }) {
 
 	return {
 		props: {
-			siteTitle: "Garrit's Site",
+			siteTitle: "Marco's Notes",
 			frontmatter: data.data,
 			markdownBody: data.content,
 		},
 	};
 }
 
-export async function getStaticPaths(): Promise<{ paths: string[]; fallback: boolean; }> {
+export async function getStaticPaths(): Promise<{
+	paths: string[];
+	fallback: boolean;
+}> {
 	//get all .md files in the posts dir
 	const pages = glob.sync("content/*.md");
 

@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 const Index = (props) => {
 	return (
-		<Page siteTitle="Garrit's Notes">
+		<Page siteTitle="Marco's Notes">
 			<h1>Filter posts by tag</h1>
 			<div className="tag-list">
 				{props.tags.map(({ tag, count }) => (

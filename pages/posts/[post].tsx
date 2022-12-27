@@ -49,7 +49,7 @@ export default function BlogTemplate(props) {
 
 	return (
 		<Page
-			siteTitle="Garrit's Notes"
+			siteTitle="Marco's Notes"
 			title={props.frontmatter.title}
 			date={reformatDate(props.frontmatter.date)}
 		>

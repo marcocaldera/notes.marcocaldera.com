@@ -29,7 +29,7 @@ const Index = (props) => {
 	};
 
 	return (
-		<Page siteTitle="Garrit's Notes">
+		<Page siteTitle="Marco's Notes">
 			{renderRandomButton()}
 			<hr />
 			<BlogList posts={filteredPosts} />
