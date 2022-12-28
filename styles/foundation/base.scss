@@ -1,5 +1,5 @@
 :root {
-	background: $color-secondary-dark;
+	background: var(--bg);
 	color: $color-text-dark;
 	@media (prefers-color-scheme: light) {
 		background: $color-secondary-light;
