@@ -15,11 +15,11 @@ export default function Header(props) {
 							Notes
 						</a>
 					</li>
-					{/* <li>
+					<li>
 						<a href="/contact" className="underlined">
 							Contact
 						</a>
-					</li> */}
+					</li>
 					<li>
 						<a href="https://marcocaldera.com" target="_blank">
 							Website

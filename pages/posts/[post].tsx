@@ -32,6 +32,19 @@ export default function BlogTemplate(props) {
 		});
 	};
 
+	const addLinkTag = ({ node, children, ...props }) => {
+		console.log(props.href);
+		if (!props.href.startsWith("https://notes.marcocaldera.com")) {
+			console.log("hre");
+			props["target"] = "_blank";
+			props["rel"] = "noopener noreferrer";
+		}
+		return React.createElement(node.tagName, {
+			children: [children],
+			...props,
+		});
+	};
+
 	const renderTagList = () => {
 		const tags = props.frontmatter.tags?.split(",").map((tag) => tag.trim());
 
@@ -63,6 +76,7 @@ export default function BlogTemplate(props) {
 					h4: addAnchorTag,
 					h5: addAnchorTag,
 					h6: addAnchorTag,
+					a: addLinkTag,
 				}}
 			>
 				{props.markdownBody}

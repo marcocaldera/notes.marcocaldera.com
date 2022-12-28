@@ -2,29 +2,8 @@
 
 Got feedback? Questions? Just want to chat? I'd love to hear from you!
 
-## E-Mail
+## Get in touch!
 
-E-mail is the easiest way to get in touch with me. I’ll usually respond fairly
-quickly, often within 24 hours. [Plain-text emails](https://useplaintext.email/)
-are encouraged.
+Luckily, it has been a while since the carrier pigeons stopped working. In case you want to get in touch with me, feel free to send me an email or reach out to me on social media platforms like [Linkedin](https://www.linkedin.com/in/marco-caldera/).
 
-[garrit@slashdev.space](mailto:garrit@slashdev.space)
-
-If you prefer [sending patches via e-mail](/posts/patch-based-git-workflow),
-please also send them to this address.
-
-PGP Fingerprint:
-
-```
-2218 337E 54AA 1DBE 207B 404D BB54 AF7E B093 9F3D
-```
-
-## Matrix
-
-I'm on Matrix at
-[@garrit:matrix.slashdev.space](https://matrix.to/#/@garrit:matrix.slashdev.space).
-
-## Mastodon (ActivityPub)
-
-You can follow me on the Fediverse at
-[@garritfra@fosstodon.org](https://fosstodon.org/@garritfra).
+[marco.caldera93@icloud.com](mailto:marco.caldera93@icloud.com)

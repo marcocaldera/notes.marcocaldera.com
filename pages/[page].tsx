@@ -23,7 +23,11 @@ export default function PageTemplate(props: PageTemplateProps) {
 
 	return (
 		<Page title={props.frontmatter.title} siteTitle={siteTitle}>
-			<ReactMarkdown remarkPlugins={[gfm]} rehypePlugins={[rehypeRaw]}>
+			<ReactMarkdown
+				linkTarget={"_blank"}
+				remarkPlugins={[gfm]}
+				rehypePlugins={[rehypeRaw]}
+			>
 				{props.markdownBody}
 			</ReactMarkdown>
 		</Page>

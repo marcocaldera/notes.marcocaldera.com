@@ -7,7 +7,7 @@ export default function FourOhFour() {
 	const setupEditRoute = () => {
 		if (window.location.href.endsWith("/edit")) {
 			const baseUrl =
-				"https://github.com/garritfra/garrit.xyz/edit/main/content";
+				"https://github.com/marcocaldera/notes.marcocaldera.com/edit/main/content";
 			const filePath = window.location.pathname.replace(/\/edit$/, "");
 			const url = `${baseUrl}${filePath}.md`;
 			window.location.href = url;
