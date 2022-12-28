@@ -1,8 +1,4 @@
-# Contact
-
-Got feedback? Questions? Just want to chat? I'd love to hear from you!
-
-## Get in touch!
+# Get in touch!
 
 Luckily, it has been a while since the carrier pigeons stopped working. In case you want to get in touch with me, feel free to send me an email or reach out to me on social media platforms like [Linkedin](https://www.linkedin.com/in/marco-caldera/).
 
