@@ -16,7 +16,7 @@ This is important. What kind of language is it if we cannot run async task.
 
 ## Example
 
-Let take a simple async task represented by a timer:
+Let's take a simple async task represented by a timer:
 
 ```typescript
 const printHappiness = () => {
@@ -55,8 +55,10 @@ We expect to run `printHappiness` after 0ms but we have to wait more than 300ms 
 
 When the timer ends, the WB put "printHappiness" in a special place called the **callback queue** and then it's the job of the famous **event loop** to check when it's the right time to put the function back in the [callstack](https://www.javascripttutorial.net/javascript-call-stack/) to be run.
 
-But when is the right time? Simple, the JS thread should no longer be busy executing our synchronous code. Therefore in this case we need to wait for the end fo the loop and the last console.log before executing our `printHappiness`.
+But when is the right time? Simple, the JS thread should no longer be busy executing our synchronous code (i.e., the callback queue is empty). Therefore in this case we need to wait for the end fo the loop and the last console.log before executing our `printHappiness`.
 
 ### Execution flow example
 
 ![Execution Flow Example](/assets/posts/2022-12-28-understanding-the-js-thread/execution_flow.gif)
+
+Step by step [example](https://medium.com/codex/javascript-event-loop-callback-queue-f15a4dd7f32b) of execution and interaction between callstack, web-browser and callback queue.
