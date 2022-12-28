@@ -34,7 +34,7 @@ for (index in bigList) {
 console.log("End of execution");
 ```
 
-### Explanation
+### Thread of execution
 
 Javascript thread of execution proceed in the following way:
 
@@ -47,11 +47,11 @@ Javascript thread of execution proceed in the following way:
 
 Effectively the JS thread is proceeding line by line but something apparently strange happens.
 
-We set a timeout for 0ms but we have to wait more than 300ms before printing "Yay, the timeout is ended"
+We expect to run `printHappiness` after 0ms but we have to wait more than 300ms before printing "Yay, the timeout is ended"
 
 ### Web browser
 
-"setTimeout" is a JavaScript function (called: _facade function_) that don't do much in JS. It just tells the web browser to spin up a feature, surprisingly called "timer" (😂) and _do something_ after a defined amount of time has passed (0ms in this example).
+**setTimeout** is a JavaScript function (called: _facade function_) that don't do much in JS. It just tells the web browser to spin up a feature, surprisingly called "timer" (😂) and _do something_ after a defined amount of time has passed (0ms in this example).
 
 When the timer ends, the WB put "printHappiness" in a special place called the **callback queue** and then it's the job of the famous **event loop** to check when it's the right time to put the function back in the [callstack](https://www.javascripttutorial.net/javascript-call-stack/) to be run.
 
