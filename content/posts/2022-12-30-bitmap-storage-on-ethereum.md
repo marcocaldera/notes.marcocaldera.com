@@ -99,7 +99,7 @@ which means that the logical or will now do:
 
 ```
 
-Yay! 🎉 We saved our egg white without losing or information on the rice!
+Yay! 🎉 We saved our egg white without losing the information on the rice!
 
 ### Finalise
 
