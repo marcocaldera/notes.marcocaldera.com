@@ -51,7 +51,7 @@ We expect to run `printHappiness` after 0ms but we have to wait more than 300ms 
 
 ### Web browser
 
-**setTimeout** is a JavaScript function (called: _facade function_) that don't do much in JS. It just tells the web browser to spin up a feature, surprisingly called "timer" (😂) and _do something_ after a defined amount of time has passed (0ms in this example).
+**setTimeout** is a JavaScript function (called: _facade function_) that don't do much in JS. It just tells the web browser to spin up a feature, surprisingly called "timer" 😂 and _do something_ after a defined amount of time has passed (0ms in this example).
 
 When the timer ends, the WB put "printHappiness" in a special place called the **callback queue** and then it's the job of the famous **event loop** to check when it's the right time to put the function back in the [callstack](https://www.javascripttutorial.net/javascript-call-stack/) to be run.
 
@@ -61,4 +61,4 @@ But when is the right time? Simple, the JS thread should no longer be busy execu
 
 ![Execution Flow Example](/assets/posts/2022-12-28-understanding-the-js-thread/execution_flow.gif)
 
-Step by step [example](https://medium.com/codex/javascript-event-loop-callback-queue-f15a4dd7f32b) of execution and interaction between callstack, web-browser and callback queue.
+Another step by step [example](https://medium.com/codex/javascript-event-loop-callback-queue-f15a4dd7f32b) of execution and interaction between callstack, web-browser and callback queue.
