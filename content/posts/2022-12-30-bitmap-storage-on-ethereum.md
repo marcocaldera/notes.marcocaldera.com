@@ -8,11 +8,11 @@ tags: "ethereum, engineering, solidity"
 
 Every smart contract on the Ethereum network consume gas to be up and running. Every operation has a fixed gas price that has to be paid in ETH and it turns out.. storing data is one of the most expensive operation.
 
-For this reason when we create a smart contract we should think of being in a machine that has to run operations in the most efficient way possible. One way of thinking like that for storage is using **bitmaps**.
+For this reason when we create a smart contract we should think of being in a machine that has to run operations in the most efficient way possible. From a storage prospective we can think of **bitmaps**.
 
 ## Over engineering a grocery list
 
-Let's try to organise my weekly groceries list with bitmap.
+Let's try bitmapping my weekly groceries list.
 
 This is what I want buy:
 
