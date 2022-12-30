@@ -123,5 +123,7 @@ do {
 } while (shoppingList.length > index);
 ```
 
-[^1]: `uint` is the alias for uint256 and is's a non-negative integer up to 2^256-1
+Full code of the contract: [github eth-smart-contract-groceries](https://github.com/marcocaldera/eth-smart-contract-groceries)
+
+[^1]: `uint` is the alias for uint256 and it's a non-negative integer up to 2^256-1
 [^2]: The highest number that we can represent with 5 bits is 2^5-1 = 31 -> 11111. With 4 bits we can reach the number 2^4-1 = 15 which is below 20.
