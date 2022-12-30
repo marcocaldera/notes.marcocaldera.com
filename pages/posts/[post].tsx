@@ -33,9 +33,10 @@ export default function BlogTemplate(props) {
 	};
 
 	const addLinkTag = ({ node, children, ...props }) => {
-		console.log(props.href);
-		if (!props.href.startsWith("https://notes.marcocaldera.com")) {
-			console.log("hre");
+		if (
+			!props.href.startsWith("https://notes.marcocaldera.com") &&
+			!props.href.startsWith("#")
+		) {
 			props["target"] = "_blank";
 			props["rel"] = "noopener noreferrer";
 		}
