@@ -11,7 +11,7 @@ FILE_NAME="$DATE-$FILE_TITLE.md"
 
 FULL_PATH="content/posts/$FILE_NAME"
 
-cat > $FULL_PATH <<EOFs
+cat > $FULL_PATH <<EOF
 ---
 title: $TITLE
 date: "$DATE"
