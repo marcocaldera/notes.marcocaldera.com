@@ -8,7 +8,7 @@ _Reflection on giving..._
 
 Finding myself on the giver side of the spectrum (taker vs matcher vs giver), I often wonder about my motivations.
 
-I love the world and helping people. However there was a period last year when I started feeling drained of my usual energy. I was doing my best, but I wasn't receiving enough feedback on my efforts. I began to worry that maybe I wasn't as selfless as I thought, and I was just constantly seeking useless appreciation.
+I love the world and helping people. However there was a period last year when I started feeling drained of my usual energy. I was doing my best, but I wasn't receiving enough feedback on the impact I was making. I began to worry that maybe I wasn't as selfless as I thought, and I was just constantly seeking useless appreciation.
 
 I really hoped that wasn't the case, but the signs at that moment seemed to point in that direction.
 
