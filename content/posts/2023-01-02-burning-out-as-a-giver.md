@@ -1,7 +1,7 @@
 ---
 title: Burning out as a giver
 date: "2023-01-02"
-tags: "giver, reflection"
+tags: "giving, reflection"
 ---
 
 _Reflection on giving..._
@@ -12,7 +12,7 @@ I love the world and helping people. However there was a period last year when I
 
 I really hoped that wasn't the case, but the signs at that moment seemed to point in that direction.
 
-Recently, however, I read a book by Adam Grant called "Give and Take: Why Helping Others Drives Our Success," and everything fell into place.
+Recently, however, I read a book by Adam Grant called "Give and Take: Why Helping Others Drives Our Success" and everything fell into place.
 
 According to Grant, givers don't burn out due to the amount of giving they do, but rather due to a lack of feedback on the impact of their giving. They don't burn out because of too much energy spent on giving, they burnout when they're working with people in need but it seems they are unable to help.
 
