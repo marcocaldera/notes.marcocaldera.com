@@ -1,10 +1,10 @@
 ---
-title: Burnout as a giver
+title: Burning out as a giver
 date: "2023-01-02"
 tags: "giver, reflection"
 ---
 
-_reflection on giving_
+_Reflection on giving..._
 
 Finding myself on the giver side of the spectrum (taker vs matcher vs giver), I often wonder about my motivations.
 
