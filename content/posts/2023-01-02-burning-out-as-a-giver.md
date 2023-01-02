@@ -14,6 +14,8 @@ I really hoped that wasn't the case, but the signs at that moment seemed to poin
 
 Recently, however, I read a book by Adam Grant called "Give and Take: Why Helping Others Drives Our Success" and everything fell into place.
 
+##### Why they burn out?
+
 According to Grant, givers don't burn out due to the amount of giving they do, but rather due to a lack of feedback on the impact of their giving. They don't burn out because of too much energy spent on giving, they burnout when they're working with people in need but it seems they are unable to help.
 
 This realization set my mind at ease.
