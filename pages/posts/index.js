@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import BlogList from "../../components/BlogList";
 import Page from "../../components/Page";
@@ -5,6 +6,15 @@ import matter from "gray-matter";
 
 const Index = (props) => {
 	const { query } = useRouter();
+	const [postUrl, setPostUrl] = useState("");
+
+	useEffect(() => {
+		const randomIndex = Math.floor(Math.random() * filteredPosts.length);
+		const randomPost = filteredPosts[randomIndex];
+		console.log(randomPost);
+		const randomUrl = `/posts/${randomPost?.slug}`;
+		setPostUrl(randomUrl);
+	}, []);
 
 	const filteredPosts = query.tags
 		? props.posts.filter((post) =>
@@ -15,13 +25,10 @@ const Index = (props) => {
 		  )
 		: props.posts;
 
-	const renderRandomButton = () => {
-		const randomIndex = Math.floor(Math.random() * filteredPosts.length);
-		const randomPost = filteredPosts[randomIndex];
-		const randomUrl = `/posts/${randomPost?.slug}`;
+	const renderRandomButton = (url) => {
 		return (
 			<p>
-				<a href={randomUrl} onClick={() => plausible("random_post_clicked")}>
+				<a href={url} onClick={() => plausible("random_post_clicked")}>
 					✨ Random Post ✨
 				</a>
 			</p>
@@ -30,7 +37,7 @@ const Index = (props) => {
 
 	return (
 		<Page siteTitle="Marco's Notes">
-			{renderRandomButton()}
+			{renderRandomButton(postUrl)}
 			<hr />
 			<BlogList posts={filteredPosts} />
 		</Page>
