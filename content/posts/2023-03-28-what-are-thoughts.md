@@ -1,5 +1,5 @@
 ---
-title: what are thoughts
+title: What are thoughts?
 date: "2023-03-28"
 tags: "philosophy, thought"
 ---

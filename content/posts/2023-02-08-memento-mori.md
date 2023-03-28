@@ -1,5 +1,5 @@
 ---
-title: memento mori
+title: Memento mori
 date: "2023-02-08"
 tags: "reflection, philosophy"
 ---
