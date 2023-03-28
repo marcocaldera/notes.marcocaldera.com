@@ -1,7 +1,7 @@
 ---
 title: memento mori
 date: "2023-02-08"
-tags: "engineering"
+tags: "reflection, philosophy"
 ---
 
 Meditate on your mortality. This is one concept about Stoicism that I really like.
