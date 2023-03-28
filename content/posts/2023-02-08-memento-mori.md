@@ -14,7 +14,7 @@ By contemplating our mortality, we can become more aware of the transient nature
 
 It can also help us cultivate a sense of gratitude for the present moment and the people in our lives.
 
-_Live Live Live_
+_Remember to Live Live Live_
 https://youtu.be/p1zrweVN4l4?t=64
 
 > It is not death that a man should fear, but he should fear never beginning to live.
