@@ -32,6 +32,10 @@
 	}
 }
 
+.page__info__date {
+	color: var(--air);
+}
+
 .page__body a {
 	text-decoration: underline;
 	text-decoration-color: $color-text-dark;
@@ -115,9 +119,9 @@
 		height: 75vh;
 	}
 	.page__info {
-		text-align: center;
+		// text-align: center;
 		h1 {
-			margin: 0 auto 0.66rem auto;
+			// margin: 0 auto 0.66rem auto;
 		}
 	}
 	.page__footer {

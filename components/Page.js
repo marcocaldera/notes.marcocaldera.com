@@ -24,8 +24,10 @@ export default function Page(props) {
 			<article className="page h-entry">
 				{title && (
 					<div className="page__info">
+						{date && (
+							<span className="page__info__date">{date} · Marco Caldera</span>
+						)}
 						<h1 className="p-name">{title}</h1>
-						{date && <h3 className="page__info__date">{date}</h3>}
 					</div>
 				)}
 				<div className="page__body e-content">{props.children}</div>

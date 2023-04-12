@@ -10,9 +10,9 @@
 	--mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
 	/* Default (light) theme */
-	--bg: #f3faf9;
+	--bg: #ffffff;
 	--accent-bg: #f5f7ff;
-	--text: #212121;
+	--text: #161616;
 	--text-light: #585858;
 	--border: #11999e;
 	--accent: #09735c;
@@ -20,20 +20,22 @@
 	--preformatted: #444;
 	--marked: #ffdd33;
 	--disabled: #efefef;
+	--air: rgba(255, 255, 255, 0.48);
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
 	:root {
 		color-scheme: dark;
-		--bg: #1b2221;
+		--bg: #161616;
 		--accent-bg: #1a1d1d;
-		--text: #e4f9f5;
+		--text: #ffffff;
 		--text-light: #f2faf9;
 		--accent: #21dbc2;
 		--code: #11999e;
 		--preformatted: #ccc;
 		--disabled: #111;
+		--air: rgba(255, 255, 255, 0.48);
 	}
 	/* Add a bit of transparency so light media isn't so glaring in dark mode */
 	img,
@@ -139,6 +141,9 @@ h6 {
 	font-size: 0.96rem;
 }
 
+span {
+	font-size: 0.85rem;
+}
 /* Prevent long strings from overflowing container */
 p,
 h1,
@@ -508,8 +513,10 @@ pre,
 pre span,
 kbd,
 samp {
+	font-size: 0.95rem;
+	padding: 0.2rem 0.5rem;
 	font-family: var(--mono-font);
-	color: var(--code);
+	// color: var(--code);
 }
 
 kbd {
