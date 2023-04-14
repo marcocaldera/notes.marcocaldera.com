@@ -10,7 +10,7 @@ stored.
 
 The website does not use cookies.
 
-This privacy policy may be updated from time to time. We will post any changes
+This privacy policy may be updated from time to time. I will post any changes
 on this page.
 
 ---
