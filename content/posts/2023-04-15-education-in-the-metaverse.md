@@ -5,7 +5,9 @@ author: Marco Caldera
 tags: "engineering, metaverse"
 ---
 
-Education is one of the fields that has remained almost untouched in the last few economic cycles, despite the rising cost of education and the ever-evolving world. Many jobs have become more productive and efficient with time due to new technologies, but not so much for education.
+Education is one of the fields that has remained almost untouched in the last few economic cycles, despite the rising cost of education and the ever-evolving world.
+
+Many jobs have become more productive and efficient with time due to new technologies, but not so much for education.
 
 However, by reimagining education in the metaverse, this can change. With the help of 3D technologies and AR/VR headsets, students will be able to experience history firsthand, study art by being in the actual places (i.e., "outdoor" activities will become the norm), experiment with science without buying expensive equipment while having the same experience, build things without physical materials, and more.
 
