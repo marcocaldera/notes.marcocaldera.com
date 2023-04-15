@@ -1,5 +1,5 @@
 ---
-title: education in the metaverse
+title: Education in the metaverse
 date: "2023-04-15"
 author: Marco Caldera
 tags: "engineering, metaverse"
