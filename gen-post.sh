@@ -16,7 +16,7 @@ cat > $FULL_PATH <<EOF
 title: $TITLE
 date: "$DATE"
 author: Marco Caldera
-tags: "engineering, 100DaysToOffload"
+tags: "engineering, psychology"
 ---
 
 EOF
