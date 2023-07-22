@@ -5,25 +5,31 @@ author: Marco Caldera
 tags: "health, psychology"
 ---
 
-I am not a big fan of how our generation consumes media, and I always like to conduct my own research after reading something. Recently, there has been news in the media stating that the International Agency for Research on Cancer (IARC) classified Aspartame as carcinogenic.
+I am not a big fan of how our generation consumes media, and I always like to conduct my own research after reading something.
+
+Recently, there has been news in the media stating that the International Agency for Research on Cancer (IARC) classified Aspartame as carcinogenic.
+
+##### Classification Types
 
 As I consume Coke Zero, I became curious to understand the situation better and found that it was quite easy to misjudge that news.
 
 The IARC classifies agents into five categories:
 
-Group 1: Carcinogenic
-Group 2A: Probably carcinogenic
-Group 2B: Possibly carcinogenic
-Group 3: Not classifiable
-Group 4: Probably not carcinogenic
+- Group 1: Carcinogenic
+- Group 2A: Probably carcinogenic
+- Group 2B: Possibly carcinogenic
+- Group 3: Not classifiable
+- Group 4: Probably not carcinogenic
 
 It's essential to note that the IARC does not assess the risk of an agent being carcinogenic, but rather whether it generally increases the probability of cancer or not.
 
 The differences between the first three categories are as follows [^1]:
 
-Group 1: There is sufficient evidence in animals and humans that the agent increases the probability of cancer.
-Group 2A: There is sufficient evidence in animals but limited evidence in humans regarding the relationship with cancer.
-Group 2B: There is insufficient evidence in animals and limited evidence in humans.
+- Group 1: There is sufficient evidence in animals and humans that the agent increases the probability of cancer.
+- Group 2A: There is sufficient evidence in animals but limited evidence in humans regarding the relationship with cancer.
+- Group 2B: There is insufficient evidence in animals and limited evidence in humans.
+
+##### Aspartame as 2B
 
 IARC recently classified aspartame as 2B, which is different from classifying it as carcinogenic (Group 1).
 
