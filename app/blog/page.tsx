@@ -3,10 +3,9 @@ import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 
-// https://raw.githubusercontent.com/marcocaldera/marcocaldera/main/data/quote.json
-export default function IndexPage() {
+export default function BlogPage() {
   return (
-    <section className="grid items-center gap-6 py-5 pb-8">
+    <section className="grid items-center gap-6 pb-8">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
           Beautifully designed components <br className="hidden sm:inline" />
