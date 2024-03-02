@@ -2,11 +2,13 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
+import { BlogDataTable } from "@/components/blog-data-table/data-table"
 
+// https://github.com/shadcn-ui/ui/tree/0fae3fd93ae749aca708bdfbbbeddc5d576bfb2e/apps/www/app/examples/tasks
 export default function BlogPage() {
   return (
     <section className="grid items-center gap-6 pb-8">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
+      {/* <div className="flex max-w-[980px] flex-col items-start gap-2">
         <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
           Beautifully designed components <br className="hidden sm:inline" />
           built with Radix UI and Tailwind CSS.
@@ -32,8 +34,9 @@ export default function BlogPage() {
           className={buttonVariants({ variant: "outline" })}
         >
           GitHub
-        </Link>
-      </div>
+        </Link> */}
+      {/* <BlogDataTable data={posts} /> */}
+      {/* </div> */}
     </section>
   )
 }
