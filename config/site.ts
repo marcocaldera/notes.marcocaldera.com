@@ -11,7 +11,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
+    linkedin: "https://www.linkedin.com/in/marcocaldera/",
     github: "https://github.com/marcocaldera",
     docs: "https://ui.shadcn.com",
   },

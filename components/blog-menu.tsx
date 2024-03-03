@@ -2,10 +2,16 @@
 
 import { useCallback, useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import {
+  EnvelopeClosedIcon,
+  GearIcon,
+  HomeIcon,
+  PersonIcon,
+} from "@radix-ui/react-icons"
 import { FileIcon } from "lucide-react"
-import useSWR from "swr"
 
 import { cn } from "@/lib/utils"
+import { useFetchBlogPosts } from "@/hooks/useFetchBlogPosts"
 import { Button } from "@/components/ui/button"
 import {
   CommandDialog,
@@ -14,37 +20,53 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
+  CommandShortcut,
 } from "@/components/ui/command"
-import { BlogPost } from "@/app/api/blog/posts/route"
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export const BlogMenu = () => {
   const router = useRouter()
-  const {
-    data: posts,
-    error,
-    isLoading,
-  } = useSWR<BlogPost[]>("/api/blog/posts", fetcher)
-  console.log(posts)
-  const [open, setOpen] = useState(false)
+  const { posts } = useFetchBlogPosts()
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   const runCommand = useCallback((command: () => unknown) => {
-    setOpen(false)
+    setIsDialogOpen(false)
     command()
   }, [])
 
   useEffect(() => {
-    const down = (e: KeyboardEvent) => {
+    const onKeyPress = (e: KeyboardEvent) => {
+      if (
+        (e.target instanceof HTMLElement && e.target.isContentEditable) ||
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLSelectElement
+      ) {
+        console.log("returning")
+        return
+      }
+
       if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/") {
         e.preventDefault()
-        setOpen((open) => !open)
+        setIsDialogOpen((isOpen) => !isOpen)
+      }
+
+      if (e.key === "b") {
+        e.preventDefault()
+        setIsDialogOpen((isOpen) => !isOpen)
+        runCommand(() => router.push(`/blog` as string))
+      }
+
+      if (e.key === "h") {
+        e.preventDefault()
+        setIsDialogOpen((isOpen) => !isOpen)
+        runCommand(() => router.push(`/` as string))
       }
     }
 
-    document.addEventListener("keydown", down)
-    return () => document.removeEventListener("keydown", down)
-  }, [])
+    document.addEventListener("keydown", onKeyPress)
+    return () => document.removeEventListener("keydown", onKeyPress)
+  }, [router, runCommand])
 
   return (
     <>
@@ -53,7 +75,7 @@ export const BlogMenu = () => {
         className={cn(
           "relative h-8 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
         )}
-        onClick={() => setOpen(true)}
+        onClick={() => setIsDialogOpen(true)}
       >
         <span className="hidden lg:inline-flex">Search post...</span>
         <span className="inline-flex lg:hidden">Search...</span>
@@ -61,25 +83,55 @@ export const BlogMenu = () => {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <CommandInput placeholder="Type a topic..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Posts">
-            {posts?.map((navItem) => (
+            {posts?.map((post) => (
               <CommandItem
-                key={navItem.slug}
-                value={navItem.metaData.title}
+                key={post.slug}
+                value={post.metaData.title}
                 onSelect={() => {
                   runCommand(() =>
-                    router.replace(`/blog/${navItem.slug}` as string)
+                    router.replace(`/blog/${post.slug}` as string)
                   )
                 }}
               >
                 <FileIcon className="mr-2 size-4" />
-                {navItem.metaData.title}
+                <div>
+                  {post.metaData.title}
+                  <div className="flex gap-x-2">
+                    {post.metaData?.tags.map((tag: string) => (
+                      <div key={tag} className="text-xs text-muted-foreground">
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </CommandItem>
             ))}
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Pages">
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => router.push(`/blog` as string))
+              }}
+            >
+              <PersonIcon className="mr-2 size-4" />
+              <span>Blog</span>
+              <CommandShortcut>B</CommandShortcut>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => router.push(`/` as string))
+              }}
+            >
+              <HomeIcon className="mr-2 size-4" />
+              <span>Home</span>
+              <CommandShortcut>H</CommandShortcut>
+            </CommandItem>
           </CommandGroup>
         </CommandList>
       </CommandDialog>

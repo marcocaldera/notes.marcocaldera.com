@@ -35,7 +35,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <Link
-              href={siteConfig.links.twitter}
+              href={siteConfig.links.linkedin}
               target="_blank"
               rel="noreferrer"
             >
@@ -45,7 +45,7 @@ export function SiteHeader() {
                   variant: "ghost",
                 })}
               >
-                <Icons.twitter className="size-5 fill-current" />
+                <Icons.linkedin className="size-5 fill-current" />
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>

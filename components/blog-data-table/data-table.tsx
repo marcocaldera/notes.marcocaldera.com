@@ -1,61 +1,57 @@
-"use client"
-
-import { FC } from "react"
+import { useState } from "react"
 import {
+  ColumnDef,
+  ColumnFiltersState,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { Table } from "lucide-react"
 
 import {
+  Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { columns } from "@/components/blog-data-table/columns"
-import { BlogPost } from "@/app/api/blog/posts/route"
+import { DataTableToolbar } from "@/components/blog-data-table/data-table-toolbar"
 
-interface BlogDataTableProps {
-  data: BlogPost[]
+interface DataTableProps<TData, TValue> {
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
 }
 
-export const BlogDataTable: FC<BlogDataTableProps> = ({ data }) => {
+export function BlogDataTable<TData, TValue>({
+  columns,
+  data,
+}: DataTableProps<TData, TValue>) {
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+
   const table = useReactTable({
     data,
     columns,
-    // state: {
-    //   sorting,
-    //   columnVisibility,
-    //   rowSelection,
-    //   columnFilters,
-    // },
-    // enableRowSelection: true,
-    // onRowSelectionChange: setRowSelection,
-    // onSortingChange: setSorting,
-    // onColumnFiltersChange: setColumnFilters,
-    // onColumnVisibilityChange: setColumnVisibility,
+    state: {
+      columnFilters,
+    },
     getCoreRowModel: getCoreRowModel(),
-    // getFilteredRowModel: getFilteredRowModel(),
-    // getPaginationRowModel: getPaginationRowModel(),
-    // getSortedRowModel: getSortedRowModel(),
-    // getFacetedRowModel: getFacetedRowModel(),
-    // getFacetedUniqueValues: getFacetedUniqueValues(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onColumnFiltersChange: setColumnFilters,
   })
-  console.log(table.getRowModel().rows)
+
   return (
     <div className="space-y-4">
-      {/* <DataTableToolbar table={table} /> */}
+      <DataTableToolbar table={table} />
+
       <div className="rounded-md border">
         <Table>
-          {/* <TableHeader>
+          <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id} colSpan={header.colSpan}>
+                    <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -67,7 +63,7 @@ export const BlogDataTable: FC<BlogDataTableProps> = ({ data }) => {
                 })}
               </TableRow>
             ))}
-          </TableHeader> */}
+          </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
@@ -98,7 +94,6 @@ export const BlogDataTable: FC<BlogDataTableProps> = ({ data }) => {
           </TableBody>
         </Table>
       </div>
-      {/* <DataTablePagination table={table} /> */}
     </div>
   )
 }

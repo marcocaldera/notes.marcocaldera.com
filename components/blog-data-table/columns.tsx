@@ -1,85 +1,55 @@
 import { ColumnDef } from "@tanstack/react-table"
 
-import { DataTableColumnHeader } from "@/components/blog-data-table/data-table-column-header"
+import { BlogPost } from "@/types/blog"
+import { Badge } from "@/components/ui/badge"
 
-// import { Task } from "../data/schema"
-
-export const columns: ColumnDef<any>[] = [
+export const columns: ColumnDef<BlogPost>[] = [
   {
     accessorKey: "title",
-    // header: ({ column }) => (
-    //   <DataTableColumnHeader column={column} title="Title" />
-    // ),
+    header: "Title",
     cell: ({ row }) => {
-      // const label = labels.find((label) => label.value === row.original.label)
+      return <div className="font-medium">{row.getValue("title")}</div>
+    },
+  },
+  {
+    accessorKey: "date",
+    header: "Date",
+  },
+  {
+    accessorKey: "excerpt",
+    header: "Excerpt",
+    cell: ({ row }) => {
+      return <div className="line-clamp-2">{row.getValue("excerpt")}</div>
+    },
+  },
+  {
+    accessorKey: "tags",
+    header: "Tags",
+    cell: ({ row }) => {
+      const tags = row.getValue("tags") as string[]
 
       return (
-        <div className="flex space-x-2">
-          {/* {label && <Badge variant="outline">{label.label}</Badge>} */}
-          <span className="max-w-[500px] truncate font-medium">
-            {/* {row.getValue("metaData.title")} */}
-            {"ciao"}
-          </span>
+        <div className="flex gap-x-2">
+          {tags.map((tag) => {
+            return (
+              <Badge key={tag} variant="outline">
+                {tag}
+              </Badge>
+            )
+          })}
         </div>
       )
     },
+    filterFn: (row, id, filteredTags) => {
+      const tags = row.getValue(id) as string[]
+
+      for (let tag of filteredTags) {
+        if (tags.includes(tag)) {
+          return true
+        }
+      }
+
+      return false
+    },
   },
-  // {
-  //   accessorKey: "status",
-  //   header: ({ column }) => (
-  //     <DataTableColumnHeader column={column} title="Status" />
-  //   ),
-  //   cell: ({ row }) => {
-  //     const status = statuses.find(
-  //       (status) => status.value === row.getValue("status")
-  //     )
-
-  //     if (!status) {
-  //       return null
-  //     }
-
-  //     return (
-  //       <div className="flex w-[100px] items-center">
-  //         {status.icon && (
-  //           <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-  //         )}
-  //         <span>{status.label}</span>
-  //       </div>
-  //     )
-  //   },
-  //   filterFn: (row, id, value) => {
-  //     return value.includes(row.getValue(id))
-  //   },
-  // },
-  // {
-  //   accessorKey: "priority",
-  //   header: ({ column }) => (
-  //     <DataTableColumnHeader column={column} title="Priority" />
-  //   ),
-  //   cell: ({ row }) => {
-  //     const priority = priorities.find(
-  //       (priority) => priority.value === row.getValue("priority")
-  //     )
-
-  //     if (!priority) {
-  //       return null
-  //     }
-
-  //     return (
-  //       <div className="flex items-center">
-  //         {priority.icon && (
-  //           <priority.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-  //         )}
-  //         <span>{priority.label}</span>
-  //       </div>
-  //     )
-  //   },
-  //   filterFn: (row, id, value) => {
-  //     return value.includes(row.getValue(id))
-  //   },
-  // },
-  // {
-  //   id: "actions",
-  //   cell: ({ row }) => <DataTableRowActions row={row} />,
-  // },
 ]
