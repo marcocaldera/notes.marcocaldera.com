@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -8,6 +9,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 
+import { BlogPost } from "@/types/blog"
 import {
   Table,
   TableBody,
@@ -18,17 +20,19 @@ import {
 } from "@/components/ui/table"
 import { DataTableToolbar } from "@/components/blog-data-table/data-table-toolbar"
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
+interface DataTableProps<TValue> {
+  columns: ColumnDef<BlogPost, TValue>[]
+  data: BlogPost[]
+  isLoading: boolean
 }
 
-export function BlogDataTable<TData, TValue>({
+export function BlogDataTable<TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+  isLoading,
+}: DataTableProps<TValue>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-
+  const router = useRouter()
   const table = useReactTable({
     data,
     columns,
@@ -66,28 +70,34 @@ export function BlogDataTable<TData, TValue>({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
+              table.getRowModel().rows.map((row) => {
+                return (
+                  <TableRow
+                    className="cursor-pointer"
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                    onClick={() =>
+                      router.push(`/blog/${row.original.slug}` as string)
+                    }
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                )
+              })
             ) : (
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  {!isLoading && "No results."}
                 </TableCell>
               </TableRow>
             )}

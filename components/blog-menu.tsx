@@ -87,32 +87,6 @@ export const BlogMenu = () => {
         <CommandInput placeholder="Type a topic..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Posts">
-            {posts?.map((post) => (
-              <CommandItem
-                key={post.slug}
-                value={post.metaData.title}
-                onSelect={() => {
-                  runCommand(() =>
-                    router.replace(`/blog/${post.slug}` as string)
-                  )
-                }}
-              >
-                <FileIcon className="mr-2 size-4" />
-                <div>
-                  {post.metaData.title}
-                  <div className="flex gap-x-2">
-                    {post.metaData?.tags.map((tag: string) => (
-                      <div key={tag} className="text-xs text-muted-foreground">
-                        {tag}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </CommandItem>
-            ))}
-          </CommandGroup>
-          <CommandSeparator />
           <CommandGroup heading="Pages">
             <CommandItem
               onSelect={() => {
@@ -132,6 +106,39 @@ export const BlogMenu = () => {
               <span>Home</span>
               <CommandShortcut>H</CommandShortcut>
             </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Posts">
+            {posts?.map((post) => (
+              <CommandItem
+                key={post.slug}
+                // value={post.metaData.title}
+                // title="Open post"
+                onSelect={() => {
+                  runCommand(() => router.push(`/blog/${post.slug}` as string))
+                }}
+              >
+                <FileIcon className="mr-2 size-4" />
+                <div>
+                  {post.metaData.title}
+                  <div className="flex gap-x-1">
+                    {post.metaData?.tags.map((tag: string, index: number) => {
+                      const isLastElement =
+                        index === post.metaData.tags.length - 1
+
+                      return (
+                        <div
+                          key={tag}
+                          className="text-xs text-muted-foreground"
+                        >
+                          {`${tag}${isLastElement ? "" : " /"}`}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </CommandItem>
+            ))}
           </CommandGroup>
         </CommandList>
       </CommandDialog>

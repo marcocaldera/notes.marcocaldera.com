@@ -14,11 +14,11 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
-        <Icons.logo className="size-6" />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
+        <Icons.logo className="mr-2 size-6" />
+        <span className="hidden font-bold lg:flex">{siteConfig.name}</span>
       </Link>
       {items?.length ? (
-        <nav className="flex gap-6">
+        <nav className="hidden gap-6 sm:flex">
           {items?.map(
             (item, index) =>
               item.href && (

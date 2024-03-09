@@ -5,15 +5,25 @@ import { Badge } from "@/components/ui/badge"
 
 export const columns: ColumnDef<BlogPost>[] = [
   {
+    accessorKey: "date",
+    header: "Date",
+    cell: ({ row }) => {
+      const dateString = row.getValue("date") as string
+      const date = new Date(dateString)
+      const formattedDate = date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+      return <div>{formattedDate}</div>
+    },
+  },
+  {
     accessorKey: "title",
     header: "Title",
     cell: ({ row }) => {
       return <div className="font-medium">{row.getValue("title")}</div>
     },
-  },
-  {
-    accessorKey: "date",
-    header: "Date",
   },
   {
     accessorKey: "excerpt",

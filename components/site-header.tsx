@@ -9,10 +9,11 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+// https://github.com/shadcn-ui/ui/blob/main/apps/www/components/mobile-nav.tsx#L16
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+      <div className="container flex h-16 max-w-screen-2xl items-center sm:justify-between sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <div className="w-full flex-1 md:w-auto md:flex-none">
@@ -32,6 +33,21 @@ export function SiteHeader() {
               >
                 <Icons.gitHub className="size-5" />
                 <span className="sr-only">GitHub</span>
+              </div>
+            </Link>
+            <Link
+              href={siteConfig.links.goodreads}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "icon",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.goodreads className="size-5" />
+                <span className="sr-only">GoodReads</span>
               </div>
             </Link>
             <Link

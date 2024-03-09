@@ -1,0 +1,131 @@
+---
+title: Bitmap storage on Ethereum
+date: "2022-12-30"
+tags: ["ethereum", "engineering", "solidity"]
+---
+
+# Bitmap storage on Ethereum
+
+## Bitmap storage
+{/* excerpt-start */}
+Every smart contract on the Ethereum network consume gas to be up and running. Every operation has a fixed gas price that has to be paid in ETH and it turns out.. storing data is one of the most expensive operation.
+{/* excerpt-end */}
+For this reason when we create a smart contract we should think of being in a machine that has to run operations in the most efficient way possible. From a storage prospective we can think of **bitmaps**.
+
+## Over engineering a grocery list
+
+Let's try bitmapping my weekly groceries list.
+
+This is what I want buy:
+
+- 2 package of rice
+- 4 package of egg white
+- 5 package of salmon
+- 10 tomatoes
+
+Let's create a uint variable[^1]:
+
+```solidity
+uint groceries = 0;
+```
+
+We initialised groceries as 0 which in binary means:
+
+```
+[...240bit...].0000.0000.0000.0000
+```
+
+Let's fix a maximum number of items per product that I'll ever buy in a week, 20 (e.g., max 20 tomatoes).
+
+To represent the number 20 we need 5 bits[^2] which means that I can start seeing my `uint groceries` as something like this:
+
+```
+[...236bit...].00000.00000.00000.00000
+```
+
+The first 5 bits are for the rice, the following 5 for the egg white, etc...
+
+```
+	        🍅     🍣    🍳    🍚
+[...236bit...].00000.00000.00000.00000
+```
+
+### Bitwise OR |
+
+Which type of operation we need to put the _2 package of rice_ inside the first 5 bits of our uint number? This one:
+
+```solidity
+groceries |= 2 << 5 * 0;
+```
+
+The right side of the operation is simply 2 (the shift is not used because 5\*0=0 and I'll explain it later). The or | works like this:
+
+```
+	        🍅     🍣    🍳    🍚
+[...236bit...].00000.00000.00000.00000 groceries
+[...236bit...].00000.00000.00000.00010 number 2
+
+-------------------------------------- OR operator
+
+[...236bit...].00000.00000.00000.00010 groceries
+
+```
+
+in other term the | operator is useful to write something in a variable.
+
+### Bitwise SHIFT <<
+
+To understand the SHIFT operator we can try to add the egg white (4) to the list (the second element, index=1):
+
+```solidity
+groceries |= 4 << 5 * 1;
+```
+
+The shift operator result in shifting (in binary) the number 4 by 5 bit (i.e., adding 5 leading 0):
+
+```
+[...236bit...].00000.00000.00000.00100 number 4
+[...236bit...].00000.00000.00100.00000 number 4 << 5
+```
+
+which means that the logical or will now do:
+
+```
+	        🍅     🍣    🍳    🍚
+[...236bit...].00000.00000.00000.00010 groceries
+[...236bit...].00000.00000.00100.00000 4 << 5
+
+-------------------------------------- OR operator
+
+[...236bit...].00000.00000.00100.00010 groceries
+
+```
+
+Yay! 🎉 We saved our egg white without losing the information on the rice!
+
+### Finalise
+
+By repeating the operation for salmon and tomatoes we obtain the decimal number 332930 which in binary is:
+
+```
+[...236bit...].01010.00101.00100.00010 binary
+                10🍅  5🍣    4🍳   2🍚  decimal
+```
+
+### Full solidity snippet
+
+```solidity
+uint groceries = 0;
+uint[4] memory shoppingList = [uint(2), 4, 5, 10];
+uint index = 0;
+
+do {
+	groceries |= shoppingList[index] << 5 * index;
+	index++;
+} while (shoppingList.length > index);
+```
+
+Full code of the contract: [github eth-smart-contract-groceries](https://github.com/marcocaldera/eth-smart-contract-groceries)
+
+[^1]: `uint` is the alias for uint256 and it's a non-negative integer up to 2^256-1
+[^2]: The highest number that we can represent with 5 bits is 2^5-1 = 31 -> 11111. With 4 bits we can reach the number 2^4-1 = 15 which is below 20.
