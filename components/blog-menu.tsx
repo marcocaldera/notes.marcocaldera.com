@@ -12,6 +12,10 @@ import { FileIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { useFetchBlogPosts } from "@/hooks/useFetchBlogPosts"
+import {
+  useCharShortcut,
+  useCharShortcutWithCommandKey,
+} from "@/hooks/useShortcut"
 import { Button } from "@/components/ui/button"
 import {
   CommandDialog,
@@ -34,39 +38,22 @@ export const BlogMenu = () => {
     command()
   }, [])
 
-  useEffect(() => {
-    const onKeyPress = (e: KeyboardEvent) => {
-      if (
-        (e.target instanceof HTMLElement && e.target.isContentEditable) ||
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement ||
-        e.target instanceof HTMLSelectElement
-      ) {
-        console.log("returning")
-        return
-      }
+  useCharShortcut(["n"], () => {
+    setIsDialogOpen((isOpen) => !isOpen)
+    runCommand(() => router.push(`/blog` as string))
+  })
 
-      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/") {
-        e.preventDefault()
-        setIsDialogOpen((isOpen) => !isOpen)
-      }
+  useCharShortcut(["h"], () => {
+    setIsDialogOpen((isOpen) => !isOpen)
+    runCommand(() => router.push(`/` as string))
+  })
 
-      if (e.key === "b") {
-        e.preventDefault()
-        setIsDialogOpen((isOpen) => !isOpen)
-        runCommand(() => router.push(`/blog` as string))
-      }
-
-      if (e.key === "h") {
-        e.preventDefault()
-        setIsDialogOpen((isOpen) => !isOpen)
-        runCommand(() => router.push(`/` as string))
-      }
-    }
-
-    document.addEventListener("keydown", onKeyPress)
-    return () => document.removeEventListener("keydown", onKeyPress)
-  }, [router, runCommand])
+  useCharShortcut(["/"], (e) => {
+    setIsDialogOpen((isOpen) => !isOpen)
+  })
+  useCharShortcutWithCommandKey(["k"], () => {
+    setIsDialogOpen((isOpen) => !isOpen)
+  })
 
   return (
     <>
@@ -94,8 +81,8 @@ export const BlogMenu = () => {
               }}
             >
               <PersonIcon className="mr-2 size-4" />
-              <span>Blog</span>
-              <CommandShortcut>B</CommandShortcut>
+              <span>Notes</span>
+              <CommandShortcut>N</CommandShortcut>
             </CommandItem>
             <CommandItem
               onSelect={() => {

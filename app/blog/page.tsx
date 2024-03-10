@@ -1,9 +1,7 @@
 "use client"
 
-import { BlogPost } from "@/types/blog"
-import { siteConfig } from "@/config/site"
 import { useFetchBlogPosts } from "@/hooks/useFetchBlogPosts"
-import { buttonVariants } from "@/components/ui/button"
+import { useFetchDailyQuote } from "@/hooks/useFetchDailyQuote"
 import { columns } from "@/components/blog-data-table/columns"
 import { BlogDataTable } from "@/components/blog-data-table/data-table"
 import {
@@ -15,6 +13,8 @@ import {
 // https://github.com/shadcn-ui/ui/tree/0fae3fd93ae749aca708bdfbbbeddc5d576bfb2e/apps/www/app/examples/tasks
 export default function BlogPage() {
   const { posts = [], isLoading } = useFetchBlogPosts()
+  const { quote } = useFetchDailyQuote()
+  console.log(quote)
 
   return (
     <section>

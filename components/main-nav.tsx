@@ -32,7 +32,7 @@ export function MainNav({ items }: MainNavProps) {
                 >
                   {item.title}
                   <kbd className="pointer-events-none ml-1 mr-2 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-                    B
+                    N
                   </kbd>
                 </Link>
               )

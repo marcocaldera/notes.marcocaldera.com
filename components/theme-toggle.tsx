@@ -4,10 +4,14 @@ import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
+import { useCharShortcut } from "@/hooks/useShortcut"
 import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
+
+  useCharShortcut(["l"], () => setTheme("light"))
+  useCharShortcut(["d"], () => setTheme("dark"))
 
   return (
     <Button

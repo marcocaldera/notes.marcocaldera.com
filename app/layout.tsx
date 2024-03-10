@@ -30,6 +30,7 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const env = process.env.NODE_ENV
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -45,7 +46,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <SiteHeader />
               <div className="container flex-1">{children}</div>
             </div>
-            <TailwindIndicator />
+            {env === "development" ? <TailwindIndicator /> : null}
           </ThemeProvider>
         </body>
       </html>
