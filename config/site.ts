@@ -14,7 +14,7 @@ export const siteConfig = {
     github: "https://github.com/marcocaldera",
     goodreads: "https://www.goodreads.com/user/show/142831824-marco-caldera",
     editNote:
-      "https://github.com/marcocaldera/notes.marcocaldera.com/edit/feat/new-ui/app/blog/",
+      "https://github.com/marcocaldera/notes.marcocaldera.com/edit/main/app/blog/",
     quotesAutomation:
       "https://github.com/marcocaldera/marcocaldera/blob/main/scripts/update_quote.py",
     blog: "/blog",

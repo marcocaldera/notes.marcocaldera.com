@@ -1,7 +1,7 @@
 name: Deploy Next.js site to Pages
 on:
   push:
-    branches: ["main", "feat/new-ui"]
+    branches: ["main"]
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
