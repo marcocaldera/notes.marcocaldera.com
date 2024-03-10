@@ -1,0 +1,75 @@
+---
+title: Volatility drag
+date: "2024-02-28"
+tags: ["finance", "psychology"]
+---
+
+# Volatility Drag
+
+{/* excerpt-start */}
+In the world of finance, there are many factor that can impact performance on investors portfolios. Being passionate about psychology, I'm always curious on what kind of counterintuitive things happens in the markets and how our mind react to them.
+{/* excerpt-end */}
+One such thing is the "volatility drag." (or variance drain, volatility decay)
+
+## What is Volatility Drag?
+Volatility drag refers to the negative impact that volatility can have on the returns of an investment over time. It occurs when an investment experiences price fluctuations, especially when those fluctuations involve both gains and losses. The compounding effect of these fluctuations can lead to suboptimal returns compared to a scenario with more stable, consistent growth.
+
+## How Volatility Drag Works:
+To grasp the concept of volatility drag, let's consider a couple of scenarios.
+
+### Example 1
+
+Suppose an investment in an ETF starts with 100€ and experiences a 10% loss in the first year, followed by a 10% gain in the next one.
+
+```
+Start: 100€
+1 Year: -10%
+2 Year: +10%
+```
+
+I might assume that the investment would break even, but due to volatility drag that's not the case.
+
+A 10% loss on 100€ results in 90€.
+The subsequent 10% gain is then applied to 90€, yielding 99€.
+
+```
+100€ * (1 - 0.10) * (1 + 0.10) = 99€
+```
+
+Even if it seems we are break even we are still falling short from the initial 100€.
+
+### Example 2
+
+```
+Start: 100€
+1 Year: +40%
+2 Year: -20%
+```
+
+The average return of this ETF is 10%:
+
+```
+(40% - 20% / 2) = 10%
+```
+
+and threfore with an average return of **`10%`** if we try to estimate how our portfolio would looks like by investing in this instrument:
+
+```
+100€ * (1 + 0.10) * (1 + 0.10) = 121€
+```
+
+while if we apply the same (correct) formula as before, we get:
+
+```
+100€ * (1 + 0.40) * (1 - 0.20) = 96€
+```
+
+and our actual real average return is **`-4%`**. Because:
+
+```
+(96€ - 100€) / 100€ = -0.04 = -4%
+```
+
+### In Conclusion
+
+The repeated compounding of gains and losses in a volatile environment can lead to a gradual erosion of returns, making it more challenging to achieve the desired outcomes.
