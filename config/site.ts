@@ -10,7 +10,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    linkedin: "https://www.linkedin.com/in/marcocaldera/",
+    linkedin: "https://www.linkedin.com/in/marco-caldera/",
     github: "https://github.com/marcocaldera",
     goodreads: "https://www.goodreads.com/user/show/142831824-marco-caldera",
     editNote:
