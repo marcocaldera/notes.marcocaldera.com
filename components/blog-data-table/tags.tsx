@@ -23,4 +23,4 @@ export const tags: Tag[] = [
     label: "Engineering",
     icon: Braces,
   },
-] as const
+]
