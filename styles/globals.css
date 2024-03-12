@@ -103,4 +103,7 @@
   pre {
     @apply p-4 bg-muted rounded-md;
   }
+  blockquote {
+    @apply border-l-4 border-accent pl-2;
+  }
 }
