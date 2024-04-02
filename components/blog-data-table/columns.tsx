@@ -15,23 +15,30 @@ export const columns: ColumnDef<BlogPost>[] = [
         month: "short",
         day: "numeric",
       })
-      return <div>{formattedDate}</div>
+
+      return <div className="font-medium">{formattedDate}</div>
     },
   },
-  {
-    accessorKey: "title",
-    header: "Title",
-    cell: ({ row }) => {
-      return <div className="font-medium">{row.getValue("title")}</div>
-    },
-  },
+  // {
+  //   accessorKey: "title",
+  //   header: "Title",
+  //   cell: ({ row }) => {
+  //     return <div className="font-medium">{row.getValue("title")}</div>
+  //   },
+  // },
   {
     accessorKey: "excerpt",
     header: "Excerpt",
     cell: ({ row }) => {
-      return <div className="line-clamp-2">{row.getValue("excerpt")}</div>
+      return (
+        <div>
+          <div className="pb-2 font-medium">{row.original.title}</div>
+          <div className="line-clamp-2">{row.getValue("excerpt")}</div>
+        </div>
+      )
     },
   },
+
   {
     accessorKey: "tags",
     header: "Tags",
@@ -39,7 +46,7 @@ export const columns: ColumnDef<BlogPost>[] = [
       const tags = row.getValue("tags") as string[]
 
       return (
-        <div className="flex gap-x-2">
+        <div className="flex flex-col gap-y-2">
           {tags.map((tag) => {
             return (
               <Badge key={tag} variant="outline">
