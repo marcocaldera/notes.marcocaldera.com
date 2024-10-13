@@ -8,7 +8,7 @@ import {
   HomeIcon,
   PersonIcon,
 } from "@radix-ui/react-icons"
-import { FileIcon } from "lucide-react"
+import { Badge, FileIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { useFetchBlogPosts } from "@/hooks/useFetchBlogPosts"
@@ -88,6 +88,15 @@ export const BlogMenu = () => {
               <PersonIcon className="mr-2 size-4" />
               <span>Notes</span>
               <CommandShortcut>N</CommandShortcut>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => router.push(`/goals` as string))
+              }}
+            >
+              <Badge className="mr-2 size-4" />
+              <span>Goals</span>
+              <CommandShortcut>G</CommandShortcut>
             </CommandItem>
             <CommandItem
               onSelect={() => {
