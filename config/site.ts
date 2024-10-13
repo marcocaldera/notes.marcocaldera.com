@@ -7,6 +7,12 @@ export const siteConfig = {
     {
       title: "Notes",
       href: "/blog",
+      shortcut: "N",
+    },
+    {
+      title: "Goals",
+      href: "/goals",
+      shortcut: "G",
     },
   ],
   links: {
@@ -18,5 +24,6 @@ export const siteConfig = {
     quotesAutomation:
       "https://github.com/marcocaldera/marcocaldera/blob/main/scripts/update_quote.py",
     blog: "/blog",
+    goals: "/goals",
   },
 }

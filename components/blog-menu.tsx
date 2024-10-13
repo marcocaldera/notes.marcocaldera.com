@@ -43,6 +43,11 @@ export const BlogMenu = () => {
     runCommand(() => router.push(`/blog` as string))
   })
 
+  useCharShortcut(["g"], () => {
+    setIsDialogOpen((isOpen) => !isOpen)
+    runCommand(() => router.push(`/goals` as string))
+  })
+
   useCharShortcut(["h"], () => {
     setIsDialogOpen((isOpen) => !isOpen)
     runCommand(() => router.push(`/` as string))

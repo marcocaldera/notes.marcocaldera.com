@@ -14,7 +14,6 @@ import {
 export default function BlogPage() {
   const { posts = [], isLoading } = useFetchBlogPosts()
   const { quote } = useFetchDailyQuote()
-  console.log(quote)
 
   return (
     <section>
