@@ -35,7 +35,7 @@ export default function GoalsPage() {
       .map((goal) => (
         <Card
           key={`${goal.quarter}-${goal.year}-${goal.title}`}
-          className={goal.achieved ? "bg-green-50" : ""}
+          className={goal.achieved ? "bg-green-success" : ""}
         >
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
