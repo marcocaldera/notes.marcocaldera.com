@@ -1,0 +1,213 @@
+---
+title: Expected Value
+date: "2025-01-05"
+author: Marco Caldera
+tags: ["engineering", "psychology"]
+---
+
+# Expected Value: Making Better Decisions Under Uncertainty
+
+{/* excerpt-start */}
+We make decisions under uncertainty every day. Maybe because I am an engineer but I often find myself contemplating how to make the most rational choice in various situations. Many of these decisions are based on my understanding of probability and risk.
+
+Should I buy insurance? Should I accept this job offer? When answering these questions, we typically consider both the probability of adverse events and their potential impact. Even if something is unlikely to happen, we might still want protection if its occurrence would significantly impact our lives.
+
+What I recently realized is that I was intuitively applying the concept of "expected value." Putting a label to this mental process has helped me dive deeper into the concept and make better decisions. This article is my attempt to explain expected value clearly and concisely to my future self, hoping to preserve these insights for later reference.
+{/* excerpt-end */}
+
+## What is Expected Value?
+
+Expected value helps evaluate choices by considering both the probability of different outcomes and their associated value.
+
+It's calculated by multiplying each possible outcome by its probability and summing these products.
+
+Mathematically, for n possible outcomes, the expected value (E) is:
+```
+E = p₁ × v₁ + p₂ × v₂ + ... + pₙ × vₙ
+
+where:
+pᵢ = probability of outcome i (all probabilities sum to 1)
+vᵢ = value of outcome i
+```
+
+## A Simple Example
+
+Let's say you're offered a game where:
+- You have a 70% chance of winning 100€
+- You have a 30% chance of losing 50€
+
+The expected value would be:
+```
+(0.70 × 100€) + (0.30 × -50€) = 70€ - 15€ = 55€
+```
+
+Since the expected value is positive (55€), you would expect to gain 55€ on average per game. This would be a mathematically favorable game to play.
+
+## Real World Applications
+
+### Investment Decisions
+Consider investing 10.000€ in a startup.
+- 90% chance of failure (-10.000€) - most startups fail within the first few years<sup>1</sup>
+- 9% chance of moderate success (5x return: +40.000€) - acquired or stable growth
+- 1% chance of high success (20x return: +190.000€) - becoming a "unicorn" or major exit<sup>2</sup>
+
+Expected value calculation:
+```
+(0,90 × -10.000€) + (0,09 × 40.000€) + (0,01 × 190.000€)
+= -9.000€ + 3.600€ + 1.900€
+= -3.500€
+```
+The negative expected value (-3.500€) reflects the harsh reality of startup investments: most fail, and even accounting for the rare huge successes, the pure mathematical expectation is negative. This explains why:
+1. Professional investors diversify across many startups to increase their chances of hitting a "unicorn"
+2. Other factors beyond pure financial return (like learning experience, network building, or passion for the project) often drive startup investments
+
+### Insurance Choices
+Consider home insurance costing 400€ per year. Your analysis shows:
+- 98% chance of no claim (cost: -400€)
+- 1,9% chance of minor damage (save: 5.000€)
+- 0,1% chance of major damage (save: 200.000€)
+
+Expected value calculation:
+```
+(0,98 × -400€) + (0,019 × 5.000€) + (0,001 × 200.000€)
+= -392€ + 95€ + 200€
+= -97€
+```
+
+I made up the numbers but the negative expected value actually reveals something that is true in real life: insurance companies **must** charge more than the mathematically "fair" price to cover their operating costs and make a profit. If they charged exactly the expected value of claims, they would go bankrupt.
+
+The decision to buy insurance, therefore, often goes beyond expected value and into the realm of risk management. Most people are "risk-averse" - they prefer a certain small loss (the premium) over a small chance of a catastrophic loss (home destruction). This is why we might choose to buy insurance even with a negative expected value, not because it's mathematically optimal, but because we're protecting against worst-case scenarios that could be financially devastating.
+
+### Career Decisions
+Imagine choosing between two job offers:
+
+Job A (Established Company):
+- Base salary: 60.000€ (certain)
+- Annual bonus: 5.000€ (80% probability)
+Expected value: 60.000€ + (0,80 × 5.000€) = 64.000€
+
+Job B (Startup):
+- Base salary: 50.000€ (certain)
+- Stock options: 0€ (70%), 100.000€ (25%), 500.000€ (5%)
+Expected value: 75.000€
+
+Job A expected value calculation:
+```
+(1,00 × 60.000€) + (0,80 × 5.000€)
+= 60.000€ + 4.000€
+= 64.000€
+```
+
+Job B expected value calculation:
+```
+(1,00 × 50.000€) + (0,70 × 0€) + (0,25 × 100.000€) + (0,05 × 500.000€)
+= 50.000€ + 0€ + 25.000€ + 25.000€
+= 75.000€
+```
+
+Mathematically, Job B is superior with an expected value 11,000€ higher than Job A. However, this highlights an important limitation of expected value calculations: they don't capture the importance of income stability or personal financial circumstances.
+
+For example, if you have:
+- High monthly obligations (mortgage, family expenses)
+- Limited savings
+- No other income sources
+
+Then the mathematical expectation alone might not be sufficient for your decision-making. This isn't about risk tolerance (which expected value already accounts for through probabilities), but about practical constraints and personal circumstances that exist outside the mathematical model.
+
+## The Lottery Example
+
+Let's analyze why playing the lottery is mathematically unfavorable using expected value.
+Consider a fictional lottery based on a typical format where you need to<sup>3</sup>:
+- Pick 5 numbers from 1-50
+- Plus 2 special numbers from 1-12
+
+The odds of winning the jackpot (1 in 139.838.160) come from:
+```
+Main numbers: C(50,5) = 2.118.760 combinations
+Special numbers: C(12,2) = 66 combinations
+Total combinations = 2.118.760 × 66 = 139.838.160
+```
+
+Where C(n,r) is the number of ways to choose r items from n items<sup>4</sup>. This means to win the jackpot, you need to:
+1. Correctly pick all 5 numbers from 50 possible numbers
+2. AND correctly pick both special numbers from 12 possible numbers
+
+This gives us:
+- Ticket cost: 2,50€ (what you pay for each ticket)
+- Jackpot: 17.000.000€ (the main prize)
+- Odds of winning jackpot: 1 in 139.838.160 (≈ 0,000000007)<sup>5</sup>
+  - This means you need to buy about 140 million tickets to statistically win once
+  - These odds are similar to picking the right grain of sand from a large beach
+- Smaller prizes probability: 0,0707 (about 7%)
+  - This means about 7 tickets out of 100 win something
+  - These are for matching partial numbers (like 3 or 4 numbers correct)
+- Average smaller prize: 15€
+  - This is the average of all non-jackpot prizes
+  - Ranges from small wins (4-5€) to larger ones (1.000€+)
+
+Expected value calculation:
+```
+(0,000000007 × 17.000.000€) + (0,0707 × 15€) - 2,50€
+= 0,119€ (from jackpot) + 1,06€ (from smaller prizes) - 2,50€ (ticket cost)
+= -1,32€
+```
+
+Let's break down what this means:
+- Each ticket gives you 0.119€ worth of jackpot chance
+- Plus 1.06€ worth of smaller prize chances
+- Minus 2.50€ that you actually pay
+- Result: You lose 1.32€ per ticket on average
+
+This means that for every ticket you buy, you can expect to lose 1.32€ on average. Over time, playing the lottery regularly would result in significant losses, despite the tempting jackpot. This is why the lottery is often called a "tax on hope" - people play for the dream rather than the mathematical expectation.
+
+## Beyond Pure Mathematics
+
+Through these examples, several important insights emerge about the limitations and practical applications of expected value:
+
+1. Human psychology doesn't always align with mathematical optimization
+2. Personal risk tolerance affects decision-making
+3. Some outcomes have value beyond numbers (emotional, strategic)
+
+## Making Better Decisions
+
+Some reference to use expected value:
+
+1. List all possible outcomes
+2. Estimate probabilities honestly
+3. Calculate the mathematical expectation
+4. Consider your personal risk tolerance and circumstances
+5. Factor in non-monetary aspects
+
+## Conclusion
+Expected value is a guide, not a guarantee. It helps us think systematically about uncertainty while acknowledging that real-world decisions often require considering factors beyond pure mathematics.
+
+<footer>
+<div id="footnote-1">
+  **[1]** CBInsights research "The Top 12 Reasons Startups Fail" showing that about 90% of startups fail, with 70% failing between years two and five. [View source](https://www.cbinsights.com/research/startup-failure-reasons-top/)
+</div>
+
+<div id="footnote-2">
+  **[2]** According to CBInsights "Global Unicorn Club" report, less than 1% of venture-backed companies achieve unicorn status (valuation > $1B). [View source](https://www.cbinsights.com/research/global-unicorn-club/)
+</div>
+
+<div id="footnote-3">
+  **[3]** Based on the EuroMillions lottery format, one of Europe's most popular lottery games. [View source](https://www.euro-millions.com/odds-of-winning)
+</div>
+
+<div id="footnote-4">
+  **[4]** In mathematics, this is known as the "combination formula" or "binomial coefficient", calculated as C(n,r) = n!/(r!(n-r)!). [View source](https://en.wikipedia.org/wiki/Combination)
+</div>
+
+<div id="footnote-5">
+  **[5]** According to the US National Weather Service, the odds of being struck by lightning in your lifetime are about 1 in 15,300. [View source](https://www.weather.gov/safety/lightning-odds)
+</div>
+
+<div id="footnote-6">
+  **[6]** Research from Harvard Business School, particularly their studies on venture capital and startup success rates. [View source](https://www.hbs.edu/entrepreneurship/)
+</div>
+
+<div id="footnote-7">
+  **[7]** For more on risk aversion in insurance decisions, see the American Economic Review paper on "Risk Preferences and Insurance Decisions". [View source](https://www.aeaweb.org/articles?id=10.1257/aer.20151245)
+</div>
+</footer>
+

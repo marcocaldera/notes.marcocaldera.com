@@ -27,7 +27,7 @@ jobs:
       - run: bun install
       - run: bun run build
 
-      - run: echo "notes.marcocaldera.com" > CNAME
+      - run: echo "marcocaldera.com" > CNAME
 
       - uses: actions/upload-pages-artifact@v1
         with:
