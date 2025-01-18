@@ -9,6 +9,11 @@ export const siteConfig = {
       href: "/blog",
       shortcut: "N",
     },
+    // {
+    //   title: "Projects",
+    //   href: "/projects",
+    //   shortcut: "P",
+    // },
     {
       title: "Goals",
       href: "/goals",
@@ -25,5 +30,6 @@ export const siteConfig = {
       "https://github.com/marcocaldera/marcocaldera/blob/main/scripts/update_quote.py",
     blog: "/blog",
     goals: "/goals",
+    projects: "/projects",
   },
 }
