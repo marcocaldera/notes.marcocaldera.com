@@ -3,6 +3,8 @@ import path from "path"
 import { NextRequest, NextResponse } from "next/server"
 import matter from "gray-matter"
 
+import { Project } from "@/components/projects-data-table/columns"
+
 const projectsDirectory = path.join(process.cwd(), "app/projects/")
 
 const isDirectory = (source: string) => fs.lstatSync(source).isDirectory()
@@ -28,6 +30,25 @@ function extractExcerpt(file: any, options: any) {
   file.excerpt = excerptLines
 }
 
+interface ProjectFrontMatter {
+  title: string
+  date?: string
+  author?: string
+  technologies: string[]
+  status?: string
+}
+
+// interface Project {
+//   slug: string
+//   content: string
+//   excerpt: string
+//   title: string
+//   date: string
+//   author: string
+//   technologies: string[]
+//   status: string
+// }
+
 export async function GET(_req: NextRequest) {
   try {
     const projectDirectories = fs
@@ -41,7 +62,7 @@ export async function GET(_req: NextRequest) {
       )
 
     const projects = projectDirectories
-      .map((directory) => {
+      .map((directory): Project | null => {
         try {
           const projectSlug = path.basename(directory)
           const fullPath = path.join(directory, "page.mdx")
@@ -52,10 +73,14 @@ export async function GET(_req: NextRequest) {
           }
 
           const fileContent = fs.readFileSync(fullPath, "utf8")
-          const { data, content, excerpt } = matter(fileContent, {
+          const matterResult = matter(fileContent, {
             // @ts-ignore
             excerpt: extractExcerpt,
           })
+
+          const data = matterResult.data as unknown as ProjectFrontMatter
+          const { content } = matterResult
+          const excerpt = matterResult.excerpt ?? ""
 
           // Ensure required fields exist
           if (!data.title || !data.technologies) {
@@ -68,18 +93,18 @@ export async function GET(_req: NextRequest) {
             content,
             excerpt,
             title: data.title,
-            date: data.date || "",
-            author: data.author || "Marco Caldera",
+            date: data.date ?? new Date().toISOString(),
+            author: data.author ?? "Marco Caldera",
             technologies: data.technologies,
-            status: data.status || "new",
+            status: data.status ?? "new",
           }
         } catch (error) {
           console.error(`Error processing directory ${directory}:`, error)
           return null
         }
       })
-      .filter(Boolean) // Remove null entries
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date
+      .filter((project): project is Project => Boolean(project))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
     console.log(`Found ${projects.length} projects`)
     return NextResponse.json(projects)
