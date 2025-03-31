@@ -14,11 +14,11 @@ export const siteConfig = {
     //   href: "/projects",
     //   shortcut: "P",
     // },
-    {
-      title: "Goals",
-      href: "/goals",
-      shortcut: "G",
-    },
+    // {
+    //   title: "Goals",
+    //   href: "/goals",
+    //   shortcut: "G",
+    // },
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/marco-caldera/",
