@@ -96,7 +96,7 @@ export const BlogMenu = () => {
               <span>Notes</span>
               <CommandShortcut>N</CommandShortcut>
             </CommandItem>
-            <CommandItem
+            {/* <CommandItem
               onSelect={() => {
                 runCommand(() => router.push(`/projects` as string))
               }}
@@ -104,8 +104,8 @@ export const BlogMenu = () => {
               <Hammer className="mr-2 size-4" />
               <span>Projects</span>
               <CommandShortcut>P</CommandShortcut>
-            </CommandItem>
-            <CommandItem
+            </CommandItem> */}
+            {/* <CommandItem
               onSelect={() => {
                 runCommand(() => router.push(`/goals` as string))
               }}
@@ -113,7 +113,7 @@ export const BlogMenu = () => {
               <Badge className="mr-2 size-4" />
               <span>Goals</span>
               <CommandShortcut>G</CommandShortcut>
-            </CommandItem>
+            </CommandItem> */}
             <CommandItem
               onSelect={() => {
                 runCommand(() => router.push(`/` as string))
